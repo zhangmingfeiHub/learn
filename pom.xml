@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.mfzhang.mayi</groupId>
+		<artifactId>mayi-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	
+	<groupId>com.mfzhang.mayi.learn</groupId>
+	<artifactId>learn-skills</artifactId>
+	<packaging>pom</packaging>
+	
+	<modules>
+		<module>rabbitmq</module>
+	</modules>
+	
+	<properties>
+		
+		<!-- 设置默认编码 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		
+	</properties>
+	
+	<profiles>
+		<!-- 家里 -->
+		<profile>
+			<id>home</id>
+			<properties>
+				<env>home</env>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<!-- 公司 -->
+		<profile>
+			<id>company</id>
+			<properties>
+				<env>company</env>
+			</properties>
+		</profile>
+	</profiles>
+	
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>**/conf/**</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources/conf/${env}</directory>
+			</resource>
+		</resources>
+	</build>
+	
+</project>
