@@ -20,7 +20,8 @@
 		<!-- 设置默认编码 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		
-		
+		<!-- rabbitmq -->
+		<rabbitmq.client.version>5.0.0</rabbitmq.client.version>
 	</properties>
 	
 	<profiles>
@@ -42,6 +43,18 @@
 			</properties>
 		</profile>
 	</profiles>
+	
+	<dependencyManagement>
+		<dependencies>
+		
+			<!-- rabbitmq -->
+			<dependency>
+			    <groupId>com.rabbitmq</groupId>
+			    <artifactId>amqp-client</artifactId>
+			    <version>${rabbitmq.client.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	
 	<build>
 		<resources>
