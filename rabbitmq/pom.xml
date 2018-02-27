@@ -13,6 +13,12 @@
   <name>rabbitmq Maven Webapp</name>
   
     <dependencies>
+    	<!-- learn project -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>common</artifactId>
+		</dependency>
+    	
     	<!-- rabbitmq -->
     	<dependency>
 		    <groupId>com.rabbitmq</groupId>

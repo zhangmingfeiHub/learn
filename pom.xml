@@ -13,6 +13,7 @@
 	
 	<modules>
 		<module>rabbitmq</module>
+		<module>common</module>
 	</modules>
 	
 	<properties>
@@ -49,7 +50,13 @@
 	
 	<dependencyManagement>
 		<dependencies>
-		
+			<!-- learn project -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>common</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			
 			<!-- rabbitmq -->
 			<dependency>
 			    <groupId>com.rabbitmq</groupId>
