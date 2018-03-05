@@ -22,6 +22,13 @@ public class Producer21 {
 			Connection connection = connectionFactory.newConnection(); // 创建连接
 			
 			Channel channel = connection.createChannel(); // 创建通道
+			
+			/**
+			 * 声明队列<br/>
+			 * queue：队列名称
+			 * durable：是否支持持久化，持久化后即使服务重启，队列还在
+			 * 
+			 */
 			channel.queueDeclare(QUEUE_NAME, false, false, false, null); // 声明队列
 			
 			String message = "消息队列hello"; // 发送的消息
