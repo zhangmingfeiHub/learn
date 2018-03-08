@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 import com.mfzhang.mayi.rabbitmq.util.ConnectionUtils;
+import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.DefaultConsumer;
@@ -22,7 +23,7 @@ public class ConsumerTopic2 {
 
 	private static final String QUEUE_NAME = "test_queue_exchange_topic2";
 	private static final String EXCHANGE_NAME = "test_exchange_topic";
-	private static final String ROUTING_KEY = "exchange.type";
+	private static final String ROUTING_KEY = "*.topic";
 	
 	/**
 	 * 
@@ -35,6 +36,7 @@ public class ConsumerTopic2 {
 		Connection connection = ConnectionUtils.getConn();
 		Channel channel = connection.createChannel();
 		
+		channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.TOPIC);
 		// 声明队列
 		channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 		// 队列绑定到exchange
@@ -57,7 +59,7 @@ public class ConsumerTopic2 {
 				String message = new String(body, "UTF-8");
 				
 				try {
-					Thread.sleep(1000*2);
+					Thread.sleep(1000*1);
 					System.err.println("[2] recieve message: " + message);
 				} catch (InterruptedException e) {
 					System.err.println("[2] recieve message exception: " + e);

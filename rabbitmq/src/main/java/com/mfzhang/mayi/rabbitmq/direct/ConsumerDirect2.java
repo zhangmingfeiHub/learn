@@ -5,6 +5,7 @@ import java.util.concurrent.TimeoutException;
 
 import com.mfzhang.mayi.rabbitmq.util.ConnectionUtils;
 import com.rabbitmq.client.AMQP.BasicProperties;
+import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.DefaultConsumer;
@@ -25,6 +26,8 @@ public class ConsumerDirect2 {
 		Connection conn = ConnectionUtils.getConn();
 		Channel channel = conn.createChannel();
 		
+		channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.DIRECT);
+		
 		channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 		
 		channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, ROUTING_KEY);
@@ -37,7 +40,7 @@ public class ConsumerDirect2 {
 				String message = new String(body, "UTF-8");
 				
 				try {
-					Thread.sleep(1000*2);
+					Thread.sleep(1000*1);
 					
 					System.err.println("[2] recieve message: " + message);
 				} catch (InterruptedException e) {

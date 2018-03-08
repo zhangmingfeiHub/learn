@@ -17,7 +17,7 @@ import com.rabbitmq.client.Connection;
 public class ProducerDirect {
 
 	private static final String EXCHANGE_NAME = "test_exchange_direct";
-	private static final String ROUTING_KEY = "test_queue_exchange_direct_routing_key1";
+	private static final String ROUTING_KEY = "test_queue_exchange_direct_routing_key2";
 	
 	public static void main(String[] args) throws IOException, TimeoutException, InterruptedException {
 		Connection conn = ConnectionUtils.getConn();

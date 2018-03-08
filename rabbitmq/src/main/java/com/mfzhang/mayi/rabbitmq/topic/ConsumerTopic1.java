@@ -13,6 +13,7 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import com.rabbitmq.client.AMQP.BasicProperties;
+import com.rabbitmq.client.BuiltinExchangeType;
 
 /**
  * 
@@ -22,7 +23,7 @@ public class ConsumerTopic1 {
 
 	private static final String QUEUE_NAME = "test_queue_exchange_topic1";
 	private static final String EXCHANGE_NAME = "test_exchange_topic";
-	private static final String ROUTING_KEY = "exchange.topic";
+	private static final String ROUTING_KEY = "exchange.*";
 	
 	/**
 	 * 
@@ -35,6 +36,7 @@ public class ConsumerTopic1 {
 		Connection connection = ConnectionUtils.getConn();
 		Channel channel = connection.createChannel();
 		
+		channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.TOPIC);
 		// 声明队列
 		channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 		// 队列绑定到exchange

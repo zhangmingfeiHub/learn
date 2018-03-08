@@ -5,6 +5,7 @@ import java.util.concurrent.TimeoutException;
 
 import com.mfzhang.mayi.rabbitmq.util.ConnectionUtils;
 import com.rabbitmq.client.AMQP.BasicProperties;
+import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.DefaultConsumer;
@@ -24,6 +25,8 @@ public class ConsumerDirect1 {
 	public static void main(String[] args) throws IOException, TimeoutException {
 		Connection conn = ConnectionUtils.getConn();
 		Channel channel = conn.createChannel();
+		
+		channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.DIRECT);
 		
 		channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 		

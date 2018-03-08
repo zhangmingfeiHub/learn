@@ -19,7 +19,7 @@ import com.rabbitmq.client.Connection;
 public class ProducerTopic {
 	
 	private static final String EXCHANGE_NAME = "test_exchange_topic";
-	private static final String ROUTING_KEY = "exchange.*";
+	private static final String ROUTING_KEY = "exchange.other.1.2";
 
 	/**
 	 * 

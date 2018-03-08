@@ -9,6 +9,7 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import com.rabbitmq.client.AMQP.BasicProperties;
+import com.rabbitmq.client.BuiltinExchangeType;
 
 /**
  * exchange 类型：fanout<br/>
@@ -19,17 +20,19 @@ import com.rabbitmq.client.AMQP.BasicProperties;
 public class ConsumerPS1 {
 
 	private static final String EXCHANGE_NAME = "test_exchange_fanout";
-	private static final String ROUTING_KEY = "test_exchange_fanout_routing_key1";
 	private static final String QUEUE_NAME = "test_queue_exchange_fanout1";
 	
 	public static void main(String[] args) throws IOException, TimeoutException {
 		Connection conn = ConnectionUtils.getConn();
 		Channel channel = conn.createChannel();
 		
+		channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.FANOUT);
 		// 声明队列
 		channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 		// 队列绑定到exchange
-		channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, ROUTING_KEY);
+		channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "");
+		
+		channel.basicQos(1);
 		
 		channel.basicConsume(QUEUE_NAME, true, new DefaultConsumer(channel) {
 			@Override

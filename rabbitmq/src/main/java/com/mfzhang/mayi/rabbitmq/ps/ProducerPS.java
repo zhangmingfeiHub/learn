@@ -24,7 +24,7 @@ public class ProducerPS {
 		channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.FANOUT);
 		
 		for (int i=1; i<=50; i++) {
-			String message = "hello exchange fanout 2: " + i;
+			String message = "hello exchange fanout : " + i;
 			
 			// 消息发到exchange，exchange会分发消息给绑定它的队列，生产者发送时无需指定routingKey
 			channel.basicPublish(EXCHANGE_NAME, "", null, message.getBytes());
