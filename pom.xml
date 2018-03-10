@@ -26,6 +26,8 @@
 		<!-- log -->
 		<slf4j.version>1.7.25</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
+		<!-- spring -->
+		<spring.version>5.0.1.RELEASE</spring.version>
 	</properties>
 	
 	<profiles>
@@ -81,6 +83,54 @@
 			    <version>${slf4j.version}</version>
 			    <scope>test</scope>
 			</dependency>
+			
+			<!-- spring jar -->
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-core</artifactId>
+			    <version>${spring.version}</version> <!-- ${} 引用 -->
+			</dependency>
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-context</artifactId>
+			    <version>${spring.version}</version> <!-- ${} 引用 -->
+			</dependency>
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-beans</artifactId>
+			    <version>${spring.version}</version> <!-- ${} 引用 -->
+			</dependency>
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-web</artifactId>
+			    <version>${spring.version}</version> <!-- ${} 引用 -->
+			</dependency>
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-webmvc</artifactId>
+			    <version>${spring.version}</version> <!-- ${} 引用 -->
+			</dependency>
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-test</artifactId>
+			    <version>${spring.version}</version> <!-- ${} 引用 -->
+			</dependency>
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-jdbc</artifactId>
+			    <version>${spring.version}</version> <!-- ${} 引用 -->
+			</dependency>
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-context-support</artifactId>
+			    <version>${spring.version}</version> <!-- ${} 引用 -->
+			</dependency>
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-tx</artifactId>
+			    <version>${spring.version}</version> <!-- ${} 引用 -->
+			</dependency>
+			
 		</dependencies>
 	</dependencyManagement>
 	

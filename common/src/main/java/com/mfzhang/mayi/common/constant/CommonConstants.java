@@ -20,4 +20,14 @@ public class CommonConstants {
 		public static final String EXCHANGE_NAME_ex_log = "ex_log";
 	}
 	
+	/**
+	 * 编码格式 常量
+	 * 
+	 * @author mingfei.z
+	 */
+	public static final class CodeFormat {
+		/** 编码格式：UTF */
+		public static final String FORMAT_UTF8 = "UTF-8";
+	}
+	
 }
