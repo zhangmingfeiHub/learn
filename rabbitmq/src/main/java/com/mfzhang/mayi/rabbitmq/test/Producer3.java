@@ -1,4 +1,4 @@
-package com.mfzhang.mayi.rabbitmq;
+package com.mfzhang.mayi.rabbitmq.test;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;

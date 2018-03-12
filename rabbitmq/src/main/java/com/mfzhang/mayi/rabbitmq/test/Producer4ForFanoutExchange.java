@@ -1,4 +1,4 @@
-package com.mfzhang.mayi.rabbitmq;
+package com.mfzhang.mayi.rabbitmq.test;
 
 import java.util.Date;
 

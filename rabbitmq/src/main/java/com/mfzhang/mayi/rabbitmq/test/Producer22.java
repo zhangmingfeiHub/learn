@@ -1,4 +1,4 @@
-package com.mfzhang.mayi.rabbitmq;
+package com.mfzhang.mayi.rabbitmq.test;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;

@@ -2,7 +2,7 @@
  * 
  * @author mingfei.z 2017年12月18日 下午9:33:14
  */
-package com.mfzhang.mayi.rabbitmq;
+package com.mfzhang.mayi.rabbitmq.test;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;

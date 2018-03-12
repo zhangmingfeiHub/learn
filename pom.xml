@@ -131,6 +131,13 @@
 			    <version>${spring.version}</version> <!-- ${} 引用 -->
 			</dependency>
 			
+			<!-- javax servlet -->
+			<dependency>
+			    <groupId>javax.servlet</groupId>
+			    <artifactId>javax.servlet-api</artifactId>
+			    <version>${javax.servlet.version}</version>
+			    <scope>provided</scope> <!-- 该包只在编译和测试的时候用 -->
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	
