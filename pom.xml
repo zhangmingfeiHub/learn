@@ -23,6 +23,7 @@
 		
 		<!-- rabbitmq -->
 		<rabbitmq.client.version>5.1.2</rabbitmq.client.version>
+		<spring.rabbit.version>2.0.2.RELEASE</spring.rabbit.version>
 		<!-- log -->
 		<slf4j.version>1.7.25</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
@@ -41,9 +42,6 @@
 			<properties>
 				<env>home</env>
 			</properties>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 		</profile>
 		<!-- 公司 -->
 		<profile>
@@ -51,6 +49,9 @@
 			<properties>
 				<env>company</env>
 			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 		</profile>
 	</profiles>
 	
@@ -133,6 +134,11 @@
 			    <groupId>org.springframework</groupId>
 			    <artifactId>spring-tx</artifactId>
 			    <version>${spring.version}</version> <!-- ${} 引用 -->
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.amqp</groupId>
+				<artifactId>spring-rabbit</artifactId>
+				<version>${spring.rabbit.version}</version>
 			</dependency>
 			
 			<!-- javax servlet -->

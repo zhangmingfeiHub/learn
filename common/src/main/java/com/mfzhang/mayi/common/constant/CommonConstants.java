@@ -30,4 +30,14 @@ public class CommonConstants {
 		public static final String FORMAT_UTF8 = "UTF-8";
 	}
 	
+	/**
+	 * rabbitmq 虚拟host
+	 * 
+	 * @author mingfei.z
+	 */
+	public static final class VHost {
+		/** 编码格式：UTF */
+		public static final String HOST_V_LEARN = "/v-learn";
+	}
+	
 }
