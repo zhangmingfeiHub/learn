@@ -10,6 +10,7 @@ public class RecvMessageImpl implements RecvMessage {
 	@Override
 	public void recv(String msg) {
 		System.err.println("recv msg: " + msg);
+//		int i = 1/0;
 	}
 
 }
