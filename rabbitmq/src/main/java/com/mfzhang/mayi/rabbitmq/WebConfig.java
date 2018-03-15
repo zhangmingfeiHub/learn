@@ -27,4 +27,6 @@ import org.springframework.stereotype.Controller;
 @ImportResource("classpath:spring/*.xml")
 public class WebConfig {
 
+	
+	
 }

@@ -16,7 +16,7 @@ import com.rabbitmq.client.AMQP.BasicProperties;
  * 
  * @author mingfei.z
  */
-public class Consumer1 {
+public class Consumer2 {
 
 	private static final String QUEUE_NAME = "test-queue-simple";
 	
@@ -34,7 +34,7 @@ public class Consumer1 {
 				try {
 					
 					String message = new String(body, "UTF-8");
-					System.err.println("consumer1 recieve message: " + message);
+					System.err.println("consumer2 recieve message: " + message);
 					
 //					1. 测试消费者发生异常，消息队列会不停的尝试推送消息给消费者，
 //					主要是basicNack()方法的requeue=true参数起作用，为false时就当处理失败了，消息也从队列中删除了
@@ -42,7 +42,7 @@ public class Consumer1 {
 					
 //					2.测试消息到达消费者后，在消息确认前断开与队列的连接
 //					此时消息还在队列中未被删除，队列会把消息推送给其他的消费者，如果只有该一个消费者的话，则等到该消费者与队列重新连接，再推送给它
-					Thread.sleep(1000 * 10);
+//					Thread.sleep(1000 * 20);
 					
 //					3.测试消费者发生异常，不返回确认消息给队列，
 //					则队列不会再往该消费者推送消息了，队列认为在上一条消息没有确认之前，该消费者还没有准备好接收下一条消息
@@ -52,13 +52,8 @@ public class Consumer1 {
 					
 					channel.basicAck(envelope.getDeliveryTag(), false);
 				} catch (Exception e) {
-					System.err.println("consumer1 recieve msg exception: " + e);
-					
-					// 拒绝消息
-					// deliveryTag:该消息的index、
-					// multiple：是否批量.true:将一次性拒绝所有小于deliveryTag的消息
-					// requeue：被拒绝的是否重新入队列
-					channel.basicNack(envelope.getDeliveryTag(), false, true);
+					System.err.println("consumer2 recieve msg exception: " + e);
+//					channel.basicNack(envelope.getDeliveryTag(), false, true);
 				}
 			}
 		};

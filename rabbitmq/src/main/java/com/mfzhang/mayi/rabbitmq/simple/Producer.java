@@ -17,10 +17,13 @@ public class Producer {
 		
 		channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 		
-		String message = "hello queue simple.";
-		channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
-		
-		System.err.println("send message: " + message);
+		for (int i=0; i<100; i++) {
+			
+			String message = "hello queue simple." + (i+1);
+			channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
+			
+			System.err.println("send message: " + message);
+		}
 		
 		channel.close();
 		connection.close();
