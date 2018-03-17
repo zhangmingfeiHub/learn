@@ -19,6 +19,10 @@ import com.rabbitmq.client.AMQP.BasicProperties;
 public class Consumer1 {
 
 	private static final String QUEUE_NAME = "test-queue-simple";
+	private static final String QUEUE_NAME_2 = "test-queue-simple2";
+	private static final String QUEUE_NAME_3 = "test-queue-simple3";
+	private static final String QUEUE_NAME_4 = "test-queue-simple4";
+	private static final String QUEUE_NAME_5 = "test-queue-simple5";
 	
 	public static void main(String[] args) throws IOException, TimeoutException {
 		Connection connection = ConnectionUtils.getConn();
@@ -42,7 +46,7 @@ public class Consumer1 {
 					
 //					2.测试消息到达消费者后，在消息确认前断开与队列的连接
 //					此时消息还在队列中未被删除，队列会把消息推送给其他的消费者，如果只有该一个消费者的话，则等到该消费者与队列重新连接，再推送给它
-					Thread.sleep(1000 * 10);
+//					Thread.sleep(1000 * 10);
 					
 //					3.测试消费者发生异常，不返回确认消息给队列，
 //					则队列不会再往该消费者推送消息了，队列认为在上一条消息没有确认之前，该消费者还没有准备好接收下一条消息
@@ -58,12 +62,12 @@ public class Consumer1 {
 					// deliveryTag:该消息的index、
 					// multiple：是否批量.true:将一次性拒绝所有小于deliveryTag的消息
 					// requeue：被拒绝的是否重新入队列
-					channel.basicNack(envelope.getDeliveryTag(), false, true);
+//					channel.basicNack(envelope.getDeliveryTag(), false, false);
 				}
 			}
 		};
 		
-		channel.basicConsume(QUEUE_NAME, false, consumer);
+		channel.basicConsume(QUEUE_NAME_5, false, consumer);
 	}
 
 }
