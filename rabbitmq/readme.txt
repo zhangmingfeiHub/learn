@@ -62,6 +62,18 @@
 三、持久化的问题
 1、交换器exchange和队列queue默认是非持久化的，当rabbitMq服务器重启后，非持久化的队列 和 交换机 以及队列里的消息都没了
 
-2、durable=true
+2、durable=true，交换器exchange、队列queue属性，设置true表示exchange、queue可持久化，当rabbitMq服务器宕机重启后，rabbitMq会自动重新创建exchange、queue
+
+3、消息持久化，
+	3.1、设置exchange、queue属性durable=true，只表示exchange、queue是持久化的，消息并不是持久化的，服务重启消息也照样丢失了
+	3.2、生产者发布消息时，设置投递模式deliveryMode=2（1-nonpersistent-非持久化，2-persistent-持久化），即表示该消息为持久化消息
+		3.2.1、channel.basicPublish(EXCHANGE_NAME, ROUTING_KEY, MessageProperties.PERSISTENT_TEXT_PLAIN, msg.getBytes());
+		3.2.2、BasicProperties properties = new AMQP.BasicProperties().builder().deliveryMode(2).build();
+			channel.basicPublish(EXCHANGE_NAME, ROUTING_KEY, properties, msg.getBytes());
+		3.2.3、生产者发布持久性消息到持久化交换器exchange，rabbitMq会在持久性消息写入磁盘日志文件后，才会发送响应给生产者
+		3.2.4、生产者发布持久性消息到持久化交换器exchange，消息被路由到了非持久化队列queue，消息会自动被移除（从持久性日志文件中移除），并rabbitMq服务重启后不会恢复
+		3.2.5、生产者发布持久性消息到非持久化的交换器，消息被路由到了持久化队列，rabbitMq服务重启后消息能够恢复，队列会被重新创建，但交换器不会自动被创建
+		3.2.6、最好交换器exchange、队列queue、消息message都持久化
+		3.2.7、消费者消费了一条持久化消息后，rabbitMq会把这条消息在持久化日志文件中标识等待垃圾收集
 
 
