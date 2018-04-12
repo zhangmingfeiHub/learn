@@ -23,7 +23,7 @@
 	
 	<!-- info -->
 	<appender name="infoDaily" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="file" value="e:/logs/info.log" />
+		<param name="file" value="e:/logs/mayi/info.log" />
 		<param name="datePattern" value="'.'yyyy-MM-dd-HH-mm'.log'" />
 		
 	
@@ -46,7 +46,7 @@
 	
 	<!-- error -->
 	<appender name="errorDaily" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="file" value="e:/logs/error.log" />
+		<param name="file" value="e:/logs/mayi/error.log" />
 		<param name="datePattern" value="'.'yyyy-MM-dd-HH-mm'.log'" />
 		
 	

@@ -34,6 +34,9 @@
 		<javax.servlet.version>3.1.0</javax.servlet.version>
 		<!-- jackson -->
 		<jackson.version>2.9.0</jackson.version>
+		<!-- jstl -->
+		<jstl.version>1.2</jstl.version>
+		<jstl.standard.version>1.1.2</jstl.standard.version>
 	</properties>
 	
 	<profiles>
@@ -43,9 +46,6 @@
 			<properties>
 				<env>home</env>
 			</properties>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 		</profile>
 		<!-- 公司 -->
 		<profile>
@@ -53,6 +53,9 @@
 			<properties>
 				<env>company</env>
 			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 		</profile>
 	</profiles>
 	
@@ -155,6 +158,18 @@
 			    <groupId>com.fasterxml.jackson.core</groupId>
 			    <artifactId>jackson-databind</artifactId>
 			    <version>${jackson.version}</version>
+			</dependency>
+			
+			<!-- jstl -->
+			<dependency>
+			    <groupId>jstl</groupId>
+			    <artifactId>jstl</artifactId>
+			    <version>${jstl.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>taglibs</groupId>
+			    <artifactId>standard</artifactId>
+			    <version>${jstl.standard.version}</version>
 			</dependency>
 			
 		</dependencies>
