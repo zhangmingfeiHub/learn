@@ -37,6 +37,8 @@
 		<!-- jstl -->
 		<jstl.version>1.2</jstl.version>
 		<jstl.standard.version>1.1.2</jstl.standard.version>
+		<!-- aspectj -->
+		<aspectj.version>1.9.0</aspectj.version>
 	</properties>
 	
 	<profiles>
@@ -46,6 +48,9 @@
 			<properties>
 				<env>home</env>
 			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 		</profile>
 		<!-- 公司 -->
 		<profile>
@@ -53,9 +58,6 @@
 			<properties>
 				<env>company</env>
 			</properties>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 		</profile>
 	</profiles>
 	
@@ -140,9 +142,26 @@
 			    <version>${spring.version}</version> <!-- ${} 引用 -->
 			</dependency>
 			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-aop</artifactId>
+			    <version>${spring.version}</version> <!-- ${} 引用 -->
+			</dependency>
+			<dependency>
 				<groupId>org.springframework.amqp</groupId>
 				<artifactId>spring-rabbit</artifactId>
 				<version>${spring.rabbit.version}</version>
+			</dependency>
+			
+			<!-- aspectj -->
+			<dependency>
+			    <groupId>org.aspectj</groupId>
+			    <artifactId>aspectjrt</artifactId>
+			    <version>${aspectj.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.aspectj</groupId>
+			    <artifactId>aspectjweaver</artifactId>
+			    <version>${aspectj.version}</version>
 			</dependency>
 			
 			<!-- javax servlet -->
@@ -177,6 +196,7 @@
 	
 	<build>
 		<resources>
+			<!-- 
 			<resource>
 				<directory>src/main/resources</directory>
 				<excludes>
@@ -186,7 +206,21 @@
 			<resource>
 				<directory>src/main/resources/conf/${env}</directory>
 			</resource>
+			 -->
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
+				<excludes>
+					<exclude>**/conf/**</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>${basedir}/src/main/resources/conf/${env}</directory>
+				<filtering>true</filtering>
+				<targetPath>${project.build.outputDirectory}</targetPath>
+			</resource>
 		</resources>
+		
 	</build>
 	
 </project>

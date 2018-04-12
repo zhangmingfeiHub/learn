@@ -2,7 +2,7 @@
  * 
  * @author mingfei.z 2018年4月11日 上午12:21:06
  */
-package com.mfzhang.mayi.spring.aop.service;
+package com.mfzhang.mayi.spring.aop.service.impl;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import com.mfzhang.mayi.spring.aop.service.AopService;
 import com.mfzhang.mayi.spring.aop.vo.UserInfoVo;
 
 /**
@@ -27,7 +28,8 @@ public class AopServiceImpl implements AopService {
 	 */
 	@Override
 	public List<UserInfoVo> list() {
-		
+
+		System.err.println("--- service list ---");
 		return createData();
 	}
 	
@@ -39,11 +41,12 @@ public class AopServiceImpl implements AopService {
 	 */
 	@Override
 	public UserInfoVo get(Integer userId) {
-		
+		System.err.println("--- service get ---");
 		List<UserInfoVo> list = createData();
 		
 		if (!CollectionUtils.isEmpty(list)) {
-			return list.stream().filter(u -> u.getUserId().equals(userId)).findFirst().get();
+			UserInfoVo userInfoVo = list.stream().filter(u -> u.getUserId().equals(userId)).findFirst().get();
+			return userInfoVo;
 		}
 		
 		return null;

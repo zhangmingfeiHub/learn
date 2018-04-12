@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mfzhang.mayi.common.Result;
+import com.mfzhang.mayi.common.util.JsonUtils;
 import com.mfzhang.mayi.spring.aop.service.AopService;
 import com.mfzhang.mayi.spring.aop.vo.UserInfoVo;
 
@@ -41,10 +42,23 @@ public class AopController {
 		return Result.success(aopService.list());
 	}
 	
+	/**
+	 * 1、jsp页面不显示model中值，解决办法：<%@ page isELIgnored="false" %>
+	 * isELIgnored="true"，则JSP中的表达式被当成字符串处理；
+	 * isELIgnored="false"，isELIgnored属性用来指定是否忽略EL；
+	 * 
+	 * @author mingfei.z
+	 * @param userId
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/get/{userId}", method = RequestMethod.GET)
 	public String get(@PathVariable("userId") Integer userId, Model model) {
-		model.addAttribute("userInfo", aopService.get(userId));
+		logger.info("获取用户信息，入参={}", userId);
+		UserInfoVo userInfoVo = aopService.get(userId);
+		model.addAttribute("userInfo", userInfoVo);
 		
+		logger.info("获取用户信息，入参={}，返回结果={}", userId, JsonUtils.writeValueAsString(userInfoVo));
 		return "userInfoDetail";
 	}
 	
