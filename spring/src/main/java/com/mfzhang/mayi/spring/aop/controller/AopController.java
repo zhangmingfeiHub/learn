@@ -35,6 +35,14 @@ public class AopController {
 	@Autowired
 	private AopService aopService;
 	
+	/**
+	 * 
+	 * 如果没有加 {@link ResponseBody} 注解，则SpringMVC会把请求url当做逻辑视图来解析，
+	 * 如：该方法如果没有@ResponseBody 注解，则/spring/WEB-INF/view/aop/list.jsp，浏览器会报错404
+	 * 
+	 * @author mingfei.z
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/list", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody

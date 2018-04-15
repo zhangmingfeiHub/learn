@@ -16,27 +16,27 @@ import org.springframework.stereotype.Component;
  * @author mingfei.z
  */
 @Aspect
-//@Component("aspectjV3")
+@Component("aspectjV3")
 public class AopAspectj {
 
 	@Pointcut("execution(* com.mfzhang.mayi.spring.aop.service.*.*(..))"
-			+ "&& args(userId)")
-	public void pc(Integer userId) {}
+			+ "&& args(a)")
+	public void pc(Integer a) {}
 	
-	@Before("pc(userId)")
-	public void sayHello(Integer userId) {
+	@Before("pc(a)")
+	public void sayHello(Integer a) {
 
-		System.err.println("--- hello(v3) ---");
+		System.err.println("--- hello(v3) ---" + a.toString() );
 	}
 
-	@AfterReturning("pc(userId)")
-	public void sayBye(Integer userId) {
+	@AfterReturning("pc(a)")
+	public void sayBye(Integer a) {
 
 		System.err.println("--- bye bye(v3) ---");
 	}
 
-	@AfterThrowing("pc(userId)")
-	public void sayNo(Integer userId) {
+	@AfterThrowing("pc(a)")
+	public void sayNo(Integer a) {
 
 		System.err.println("--- nothing(v3) ---");
 	}

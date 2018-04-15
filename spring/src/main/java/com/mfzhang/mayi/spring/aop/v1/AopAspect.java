@@ -33,7 +33,7 @@ import org.springframework.stereotype.Component;
  * @author mingfei.z
  */
 @Aspect
-//@Component("aspectjV1")
+@Component("aspectjV1")
 public class AopAspect {
 
 	private static final Logger logger = LoggerFactory.getLogger(AopAspect.class);
