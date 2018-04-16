@@ -2,7 +2,7 @@
  * 
  * @author mingfei.z 2018年4月16日 下午7:40:00
  */
-package com.mfzhang.mayi.spring.aop.v5.config;
+package com.mfzhang.mayi.spring.aop.v4.config;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.DeclareParents;
@@ -17,7 +17,7 @@ import com.mfzhang.mayi.spring.aop.service.impl.IntroduceServiceImpl;
  * @author mingfei.z
  */
 @Aspect
-@Component("aopAspectV5")
+@Component("aopAspectV4Config")
 public class AopAspect {
 
 	/**

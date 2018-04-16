@@ -17,7 +17,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
-import com.mfzhang.mayi.spring.aop.v1.AopAspect;
+import com.mfzhang.mayi.spring.aop.v1.config.AopAspect;
 
 /**
  * 1、{@link EnableAspectJAutoProxy} 启用自动代理功能

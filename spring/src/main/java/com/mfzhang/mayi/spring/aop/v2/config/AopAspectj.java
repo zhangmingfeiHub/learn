@@ -2,7 +2,7 @@
  * 
  * @author mingfei.z 2018年4月12日 下午11:28:20
  */
-package com.mfzhang.mayi.spring.aop.v2;
+package com.mfzhang.mayi.spring.aop.v2.config;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  * @author mingfei.z
  */
 @Aspect
-@Component("aspectjV2")
+@Component("aspectjV2Config")
 public class AopAspectj {
 
 	@Pointcut("execution(* com.mfzhang.mayi.spring.aop.service.*.*(..))")
@@ -38,12 +38,12 @@ public class AopAspectj {
 		Object result = null;
 		
 		try {
-			System.err.println("--- hello(v2) ---");
+			System.err.println("--- hello(v2 config) ---");
 			result = pjp.proceed();
-			System.err.println("--- bye bye(v2) ---");
+			System.err.println("--- bye bye(v2 config) ---");
 		} catch (Throwable e) {
 			
-			System.err.println("--- nothing(v2) ---");
+			System.err.println("--- nothing(v2 config) ---");
 		}
 		
 		return result;

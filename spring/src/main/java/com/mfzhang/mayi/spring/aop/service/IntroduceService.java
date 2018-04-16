@@ -14,4 +14,6 @@ public interface IntroduceService {
 
 	void add(UserInfoVo userInfoVo);
 	
+	void delete(Integer userId);
+	
 }

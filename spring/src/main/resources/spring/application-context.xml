@@ -7,17 +7,43 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="aopAspectV4" class="com.mfzhang.mayi.spring.aop.v4.xml.AopAspect" />
+	<bean id="aopAspectV1Xml" class="com.mfzhang.mayi.spring.aop.v1.xml.AopAspect" />
+	<bean id="aopAspectV2Xml" class="com.mfzhang.mayi.spring.aop.v2.xml.AopAspect" />
+	<bean id="aopAspectV3Xml" class="com.mfzhang.mayi.spring.aop.v3.xml.AopAspect" />
+	<bean id="introduceService" class="com.mfzhang.mayi.spring.aop.service.impl.IntroduceServiceImpl" />
+	<bean id="introduceServiceV2" class="com.mfzhang.mayi.spring.aop.service.impl.IntroduceServiceImplV2" />
 
 	<aop:config>
-		<aop:aspect ref="aopAspectV4">
-			<aop:pointcut expression="execution(* com.mfzhang.mayi.spring.aop.service.*.*(..))" id="pc"/>
-			
+		<aop:pointcut expression="execution(* com.mfzhang.mayi.spring.aop.service.*.*(..))" id="pc"/>
+		
+		<aop:aspect ref="aopAspectV2Xml">
+			<aop:around method="say" pointcut-ref="pc"/>
+		</aop:aspect>
+		
+		<aop:aspect ref="aopAspectV1Xml">
 			<aop:before method="sayHello" pointcut-ref="pc"/>
 			<aop:after-returning method="sayBye" pointcut-ref="pc"/>
 			<aop:after-throwing method="sayNo" pointcut-ref="pc"/>
 			<aop:after method="saySt" pointcut-ref="pc"/>
 		</aop:aspect>
+		
+		<aop:aspect ref="aopAspectV3Xml">
+			<aop:pointcut expression="execution(* com.mfzhang.mayi.spring.aop.service.*.*(..)) and args(userId)" id="pcArgs"/>
+			
+			<aop:before method="sayHello" pointcut-ref="pcArgs"/>
+			<aop:after-returning method="sayBye" pointcut-ref="pcArgs"/>
+			<aop:after-throwing method="sayNo" pointcut-ref="pcArgs"/>
+		</aop:aspect>
+		
+		<aop:aspect>
+			<!-- types-matching属性：指定需要引入额外接口的目标类； 
+			implement-interface：表示往目标类中引入的接口类；
+			delegate-ref 或者 default-impl：表示往目标类中引入的接口的实现类； -->
+			<aop:declare-parents types-matching="com.mfzhang.mayi.spring.aop.service.AopService+" 
+				implement-interface="com.mfzhang.mayi.spring.aop.service.IntroduceService" 
+				delegate-ref="introduceServiceV2"/>
+		</aop:aspect>
+		
 	</aop:config>
 
 </beans>

@@ -2,7 +2,7 @@
  * 
  * @author mingfei.z 2018年4月12日 下午9:51:20
  */
-package com.mfzhang.mayi.spring.aop.v1;
+package com.mfzhang.mayi.spring.aop.v1.config;
 
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -33,7 +33,7 @@ import org.springframework.stereotype.Component;
  * @author mingfei.z
  */
 @Aspect
-@Component("aspectjV1")
+@Component("aspectjV1Config")
 public class AopAspect {
 
 	private static final Logger logger = LoggerFactory.getLogger(AopAspect.class);
@@ -55,7 +55,7 @@ public class AopAspect {
 	 */
 	@Before("pointCut()")
 	public void sayHello() {
-		System.err.println("--- hello ---");
+		System.err.println("--- hello(v1 config) ---");
 		logger.info("say: {}", "hello");
 	}
 	
@@ -67,7 +67,7 @@ public class AopAspect {
 	 */
 	@AfterReturning("pointCut()")
 	public void sayBye() {
-		System.err.println("--- bye bye ---");
+		System.err.println("--- bye bye(v1 config) ---");
 		logger.info("say: {}", "bye bye");
 	}
 	
@@ -78,7 +78,7 @@ public class AopAspect {
 	 */
 	@AfterThrowing("pointCut()")
 	public void sayNo() {
-		System.err.println("--- nothing ---");
+		System.err.println("--- nothing(v1 config) ---");
 		logger.info("say: {}", "nothing");
 	}
 	

@@ -80,5 +80,14 @@ public class AopController {
 		
 		return Result.success("A");
 	}
+
+	@RequestMapping(value = "/delete/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public Result<String> delete(@PathVariable Integer userId) {
+		
+		((IntroduceService) aopService).delete(userId);
+		
+		return Result.success("A");
+	}
 	
 }

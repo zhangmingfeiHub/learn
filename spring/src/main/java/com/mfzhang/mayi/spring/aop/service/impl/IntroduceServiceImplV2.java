@@ -1,6 +1,6 @@
 /**
  * 
- * @author mingfei.z 2018年4月16日 下午7:42:19
+ * @author mingfei.z 2018年4月16日 下午10:52:59
  */
 package com.mfzhang.mayi.spring.aop.service.impl;
 
@@ -11,11 +11,16 @@ import com.mfzhang.mayi.spring.aop.vo.UserInfoVo;
  * 
  * @author mingfei.z
  */
-public class IntroduceServiceImpl implements IntroduceService {
+public class IntroduceServiceImplV2 implements IntroduceService {
 
+	/**
+	 * 
+	 * @author mingfei.z
+	 * @param userInfoVo
+	 */
 	@Override
 	public void add(UserInfoVo userInfoVo) {
-		System.err.println(" --- add userInfo --- ");
+		System.err.println(" --- add userInfo V2 --- ");
 	}
 	
 	/**
@@ -25,7 +30,7 @@ public class IntroduceServiceImpl implements IntroduceService {
 	 */
 	@Override
 	public void delete(Integer userId) {
-		System.err.println(" --- delete userInfo --- ");
+		System.err.println(" --- delete userInfo V2 --- ");
 	}
 
 }
