@@ -11,6 +11,7 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.FilterType;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
@@ -31,6 +32,7 @@ import com.mfzhang.mayi.spring.aop.v1.AopAspect;
 })
 @EnableAspectJAutoProxy
 @PropertySource("classpath:system.properties")
+@ImportResource(locations = {"classpath:spring/application-context.xml"})
 public class WebConfig {
 
 	@Autowired

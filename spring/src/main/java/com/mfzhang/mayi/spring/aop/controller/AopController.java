@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mfzhang.mayi.common.Result;
 import com.mfzhang.mayi.common.util.JsonUtils;
 import com.mfzhang.mayi.spring.aop.service.AopService;
+import com.mfzhang.mayi.spring.aop.service.IntroduceService;
 import com.mfzhang.mayi.spring.aop.vo.UserInfoVo;
 
 /**
@@ -68,6 +70,15 @@ public class AopController {
 		
 		logger.info("获取用户信息，入参={}，返回结果={}", userId, JsonUtils.writeValueAsString(userInfoVo));
 		return "userInfoDetail";
+	}
+	
+	@RequestMapping(value = "/add", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public Result<String> add() {
+		
+		((IntroduceService) aopService).add(null);
+		
+		return Result.success("A");
 	}
 	
 }
