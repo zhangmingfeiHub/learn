@@ -10,7 +10,9 @@ package com.mfzhang.mayi.common.enums;
  */
 public enum StateCodeEnum {
 
-	CODE_COMMON_SUCCESS(200, "成功");
+	CODE_COMMON_SUCCESS(200, "成功"),
+	
+	CODE_COMMON_PARAM_ERROR(6001, "参数错误");
 	
 	private int code;
 	private String message;

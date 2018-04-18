@@ -4,6 +4,7 @@
  */
 package com.mfzhang.mayi.spring;
 
+import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -26,7 +27,8 @@ import com.mfzhang.mayi.spring.aop.v1.config.AopAspect;
  */
 @Configuration
 @ComponentScan(basePackageClasses = Mark.class, useDefaultFilters = false, includeFilters = {
-		@Filter(type = FilterType.ANNOTATION, value = Component.class)
+		@Filter(type = FilterType.ANNOTATION, value = Component.class),
+		@Filter(type = FilterType.ANNOTATION, value = Aspect.class)
 }, excludeFilters = {
 		@Filter(type = FilterType.ANNOTATION, value = Controller.class)
 })

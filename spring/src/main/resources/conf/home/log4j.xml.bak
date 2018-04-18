@@ -2,6 +2,20 @@
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 	
+	<!--
+	不能打印日志，提示信息： 
+	SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+	问题原因：
+	1、父pom中，slf4j-log4j12 设置了 <scope>test</scope>；
+	2、log4j.xml 配置有问题；
+	
+	解決办法：
+	1、去掉<scope>test</scope> 限制；
+	2、采用log4j.properties就可以了（log4j.xml的配置可以以后修改）；
+	 -->
+	
 	<!-- 控制台 -->
 	<appender name="console" class="org.apache.log4j.ConsoleAppender">
 		<!-- 设置日志输出的样式 -->
@@ -25,7 +39,6 @@
 	<appender name="infoDaily" class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="file" value="e:/logs/mayi/info.log" />
 		<param name="datePattern" value="'.'yyyy-MM-dd-HH-mm'.log'" />
-		
 	
 		<!-- 设置日志输出的样式 -->
 		<layout class="org.apache.log4j.PatternLayout">
@@ -49,7 +62,6 @@
 		<param name="file" value="e:/logs/mayi/error.log" />
 		<param name="datePattern" value="'.'yyyy-MM-dd-HH-mm'.log'" />
 		
-	
 		<!-- 设置日志输出的样式 -->
 		<layout class="org.apache.log4j.PatternLayout">
 			<!-- 设置日志输出的格式 -->

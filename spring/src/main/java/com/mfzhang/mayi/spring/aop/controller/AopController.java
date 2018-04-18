@@ -49,7 +49,10 @@ public class AopController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public Result<List<UserInfoVo>> list() {
-		return Result.success(aopService.list());
+		List<UserInfoVo> list = aopService.list();
+		logger.info("获取用户信息列表，结果={}", JsonUtils.writeValueAsString(list));
+		
+		return Result.success(list);
 	}
 	
 	/**
@@ -89,5 +92,31 @@ public class AopController {
 		
 		return Result.success("A");
 	}
+	
+	
+	
+	@RequestMapping(value = "/addUserInfo", method = RequestMethod.GET)
+	@ResponseBody
+	public Result<String> addUserInfo() {
+		UserInfoVo userInfoVo = new UserInfoVo();
+		userInfoVo.setUserId(300);
+		userInfoVo.setUserName("u3-300");
+		
+		aopService.addUserInfo(userInfoVo);
+		return Result.success();
+	}
+
+	@RequestMapping(value = "/addUserInfo/{flag}", method = RequestMethod.GET)
+	@ResponseBody
+	public Result<Boolean> addUserInfo(@PathVariable Integer flag) {
+		UserInfoVo userInfoVo = new UserInfoVo();
+		userInfoVo.setUserId(300);
+		userInfoVo.setUserName("u3-300");
+		
+		return aopService.addUserInfo(userInfoVo, flag);
+	}
+	
+	
+	
 	
 }

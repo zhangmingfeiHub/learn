@@ -14,7 +14,13 @@
 
 <a href="aop/list" class="mr20">用户列表信息</a>
 <a href="aop/get/100" class="mr20">获取指定用户信息，并跳转页面</a>
-<a href="aop/add" class="mr20">添加用户信息</a>
+<a href="aop/add" class="mr20">添加</a>
+<br/>
+<br/>
+<br/>
+<a href="aop/addUserInfo" class="mr20">添加用户信息-不分情况</a>
+<a href="aop/addUserInfo/0" class="mr20">添加用户信息-情况1</a>
+<a href="aop/addUserInfo/1" class="mr20">添加用户信息-情况2</a>
 
 </body>
 </html>

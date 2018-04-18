@@ -8,9 +8,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import com.mfzhang.mayi.common.Result;
+import com.mfzhang.mayi.common.enums.StateCodeEnum;
+import com.mfzhang.mayi.common.util.JsonUtils;
 import com.mfzhang.mayi.spring.aop.service.AopService;
 import com.mfzhang.mayi.spring.aop.vo.UserInfoVo;
 
@@ -21,6 +26,8 @@ import com.mfzhang.mayi.spring.aop.vo.UserInfoVo;
 @Service
 public class AopServiceImpl implements AopService {
 
+	private static final Logger logger = LoggerFactory.getLogger(AopServiceImpl.class);
+	
 	/**
 	 * 
 	 * @author mingfei.z
@@ -72,6 +79,42 @@ public class AopServiceImpl implements AopService {
 		list.add(u2);
 		
 		return list;
+	}
+	
+	/**
+	 * 
+	 * @author mingfei.z
+	 * @param userInfoVo
+	 */
+	@Override
+	public void addUserInfo(UserInfoVo userInfoVo) {
+		
+		logger.info("添加用户信息，入参={}", JsonUtils.writeValueAsString(userInfoVo));
+		
+	}
+	
+	/**
+	 * 
+	 * @author mingfei.z
+	 * @param userInfoVo
+	 * @param flag
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public Result<Boolean> addUserInfo(UserInfoVo userInfoVo, Integer flag) {
+		if (null == flag || flag.intValue() < 0 || flag.intValue() > 1) {
+			return Result.fail(StateCodeEnum.CODE_COMMON_PARAM_ERROR);
+		}
+		
+		logger.info("添加用户信息，入参：flag={}，userInfoVo={}", flag.toString(), JsonUtils.writeValueAsString(userInfoVo));
+		
+		if (flag.intValue() == 0) {
+			logger.info("添加用户信息，情况1");
+		} else {
+			logger.info("添加用户信息，情况2");
+		}
+		
+		return Result.success(true);
 	}
 
 }
