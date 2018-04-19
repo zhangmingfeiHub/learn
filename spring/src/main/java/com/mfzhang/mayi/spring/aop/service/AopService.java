@@ -19,8 +19,8 @@ public interface AopService {
 	
 	UserInfoVo get(Integer userId);
 	
-	void addUserInfo(UserInfoVo userInfoVo);
+	void addUserInfo1(UserInfoVo userInfoVo);
 	
-	Result<Boolean> addUserInfo(UserInfoVo userInfoVo, Integer flag);
+	Result<Boolean> addUserInfo2(UserInfoVo userInfoVo, Integer flag);
 	
 }

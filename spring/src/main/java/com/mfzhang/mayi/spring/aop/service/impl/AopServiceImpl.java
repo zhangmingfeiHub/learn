@@ -87,7 +87,7 @@ public class AopServiceImpl implements AopService {
 	 * @param userInfoVo
 	 */
 	@Override
-	public void addUserInfo(UserInfoVo userInfoVo) {
+	public void addUserInfo1(UserInfoVo userInfoVo) {
 		
 		logger.info("添加用户信息，入参={}", JsonUtils.writeValueAsString(userInfoVo));
 		
@@ -101,7 +101,7 @@ public class AopServiceImpl implements AopService {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public Result<Boolean> addUserInfo(UserInfoVo userInfoVo, Integer flag) {
+	public Result<Boolean> addUserInfo2(UserInfoVo userInfoVo, Integer flag) {
 		if (null == flag || flag.intValue() < 0 || flag.intValue() > 1) {
 			return Result.fail(StateCodeEnum.CODE_COMMON_PARAM_ERROR);
 		}

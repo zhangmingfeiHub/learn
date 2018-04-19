@@ -14,7 +14,7 @@
 	<bean id="introduceServiceV2" class="com.mfzhang.mayi.spring.aop.service.impl.IntroduceServiceImplV2" />
 
 	<aop:config>
-		<aop:pointcut expression="execution(* com.mfzhang.mayi.spring.aop.service.*.*(..))" id="pc"/>
+		<aop:pointcut expression="execution(* com.mfzhang.mayi.spring.aop.service.IntroduceService.*(..))" id="pc"/>
 		
 		<aop:aspect ref="aopAspectV2Xml">
 			<aop:around method="say" pointcut-ref="pc"/>
@@ -28,7 +28,7 @@
 		</aop:aspect>
 		
 		<aop:aspect ref="aopAspectV3Xml">
-			<aop:pointcut expression="execution(* com.mfzhang.mayi.spring.aop.service.*.*(..)) and args(userId)" id="pcArgs"/>
+			<aop:pointcut expression="execution(* com.mfzhang.mayi.spring.aop.service.IntroduceService.*(..)) and args(userId)" id="pcArgs"/>
 			
 			<aop:before method="sayHello" pointcut-ref="pcArgs"/>
 			<aop:after-returning method="sayBye" pointcut-ref="pcArgs"/>

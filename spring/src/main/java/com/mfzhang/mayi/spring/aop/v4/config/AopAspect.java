@@ -16,7 +16,7 @@ import com.mfzhang.mayi.spring.aop.service.impl.IntroduceServiceImpl;
  * 
  * @author mingfei.z
  */
-@Aspect
+//@Aspect
 @Component("aopAspectV4Config")
 public class AopAspect {
 

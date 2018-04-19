@@ -44,7 +44,7 @@ import org.springframework.stereotype.Component;
  * 
  * @author mingfei.z
  */
-@Aspect
+//@Aspect
 @Component("aspectjV1Config")
 public class AopAspect {
 

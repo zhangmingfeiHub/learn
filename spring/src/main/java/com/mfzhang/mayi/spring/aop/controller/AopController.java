@@ -102,7 +102,7 @@ public class AopController {
 		userInfoVo.setUserId(300);
 		userInfoVo.setUserName("u3-300");
 		
-		aopService.addUserInfo(userInfoVo);
+		aopService.addUserInfo1(userInfoVo);
 		return Result.success();
 	}
 
@@ -113,7 +113,7 @@ public class AopController {
 		userInfoVo.setUserId(300);
 		userInfoVo.setUserName("u3-300");
 		
-		return aopService.addUserInfo(userInfoVo, flag);
+		return aopService.addUserInfo2(userInfoVo, flag);
 	}
 	
 	

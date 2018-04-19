@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  * 传递通知参数
  * @author mingfei.z
  */
-@Aspect
+//@Aspect
 @Component("aspectjV3Config")
 public class AopAspectj {
 
