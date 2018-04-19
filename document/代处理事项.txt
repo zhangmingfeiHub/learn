@@ -3,3 +3,15 @@
 2、Spring aop 几个指示器运用；
 
 √ 3、日志不打印问题；
+	原因：1、slf4j-log4j12  加了使用范围scope=test；
+		2、log4j.xml 配置文件有问题；
+	解决办法：1、去掉scope=test 范围的限制；
+		  2、改用Log4j.properties 配置文件；
+
+√ 4、spring aop 对controller 进行切面编程，但不起作用；
+	原因：1、WebConfig 配置类，由ContextLoaderListenerclass 加载，会创建父上下文P，
+		WebMvcConfig 配置类，由DispatcherServlet （可同时配置多个），每个DispatcherServlet 会创建自己的上下文，称为子上下文C，
+		子上下文可以访问父上下文中的内容，而父上下文则不能访问子上下文的内容；
+		2、由于 启用自动动态代理的配置（@EnableAspectJAutoProxy） 在WebConfig 父上下文中，而我们是对controller 切面编程，controller 是属于自上下文中，
+		当Spring去加载父容器时会去找切点，但我们切入的是controller 在子容器中，所以拦截不到（因为父容器无法访问子容器）
+	解决办法：把 启用自动动态代理的配置（@EnableAspectJAutoProxy） 放在WebMvcConfig 中；

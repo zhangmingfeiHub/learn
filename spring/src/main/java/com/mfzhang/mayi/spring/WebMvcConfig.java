@@ -6,6 +6,7 @@ package com.mfzhang.mayi.spring;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.stereotype.Controller;
 import org.springframework.context.annotation.ComponentScan.Filter;
@@ -31,6 +32,7 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan(basePackageClasses = Mark.class, useDefaultFilters = false, includeFilters = {
 		@Filter(type = FilterType.ANNOTATION, value = Controller.class)
 })
+@EnableAspectJAutoProxy
 // @EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 

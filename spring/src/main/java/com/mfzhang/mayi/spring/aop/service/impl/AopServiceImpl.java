@@ -103,7 +103,7 @@ public class AopServiceImpl implements AopService {
 	@Override
 	public Result<Boolean> addUserInfo2(UserInfoVo userInfoVo, Integer flag) {
 		if (null == flag || flag.intValue() < 0 || flag.intValue() > 1) {
-			return Result.fail(StateCodeEnum.CODE_COMMON_PARAM_ERROR);
+			return Result.fail(StateCodeEnum.CODE_TIPS_PARAM_ERROR);
 		}
 		
 		logger.info("添加用户信息，入参：flag={}，userInfoVo={}", flag.toString(), JsonUtils.writeValueAsString(userInfoVo));

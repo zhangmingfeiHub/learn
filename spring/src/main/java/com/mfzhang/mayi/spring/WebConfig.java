@@ -32,7 +32,7 @@ import com.mfzhang.mayi.spring.aop.v1.config.AopAspect;
 }, excludeFilters = {
 		@Filter(type = FilterType.ANNOTATION, value = Controller.class)
 })
-@EnableAspectJAutoProxy
+//@EnableAspectJAutoProxy
 @PropertySource("classpath:system.properties")
 @ImportResource(locations = {"classpath:spring/application-context.xml"})
 public class WebConfig {

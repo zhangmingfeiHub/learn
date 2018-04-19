@@ -12,7 +12,10 @@ public enum StateCodeEnum {
 
 	CODE_COMMON_SUCCESS(200, "成功"),
 	
-	CODE_COMMON_PARAM_ERROR(6001, "参数错误");
+	CODE_COMMON_SYSTEM_ERROR(500, "系统错误"),
+	
+	CODE_TIPS_PARAM_ERROR(6001, "参数错误"),
+	CODE_TIPS_NONE_DATA(6001, "未查询到数据");
 	
 	private int code;
 	private String message;
