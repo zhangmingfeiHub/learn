@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import com.mfzhang.mayi.spring.aop.v1.config.AopAspect;
+import com.mfzhang.mayi.spring.base.UserInfo;
 
 /**
  * 1、{@link EnableAspectJAutoProxy} 启用自动代理功能
@@ -44,6 +45,11 @@ public class WebConfig {
 	public AopAspect aopAspect() {
 		System.err.println("--- " + env.getProperty("project.env") + " ---");
 		return new AopAspect();
+	}*/
+	
+	/*@Bean(initMethod = "initMethod", destroyMethod = "destroyMethod")
+	public UserInfo userInfoV2() {
+		return new UserInfo();
 	}*/
 	
 }

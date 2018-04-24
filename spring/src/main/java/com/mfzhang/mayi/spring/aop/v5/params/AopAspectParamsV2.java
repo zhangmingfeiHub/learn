@@ -38,7 +38,7 @@ public class AopAspectParamsV2 {
 	public void doBefore(JoinPoint jp) throws IllegalArgumentException, IllegalAccessException {
 		logger.info("---before: args={}", JsonUtils.writeValueAsString(jp.getArgs()));
 		
-		jp.getSignature().getClass().get
+//		jp.getSignature().getClass().get
 		
 		commonController.checkAuth(jp.getArgs());
 	}
