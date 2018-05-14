@@ -7,6 +7,9 @@ package com.mfzhang.mayi.common.constant;
  */
 public class CommonConstants {
 
+	/** 用户权限token key */
+	public static final String TOKEN_KEY = "auth_token";
+	
 	/**
 	 * rabbit 相关常量
 	 * 
@@ -39,5 +42,7 @@ public class CommonConstants {
 		/** 编码格式：UTF */
 		public static final String HOST_V_LEARN = "/v-learn";
 	}
+	
+	
 	
 }

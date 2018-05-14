@@ -41,6 +41,8 @@
 <a href="#" onclick="index.updateUser(300)" class="mr20">更新学生300</a>
 <a href="#" onclick="index.updateStu(300)" class="mr20">更新学生300</a>
 
+<h1> 注解@Autowired</h1>
+<a href="autowired/get/12" class="mr20">获取动物12</a>
 
 </body>
 
