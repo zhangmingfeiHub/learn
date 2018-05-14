@@ -15,7 +15,8 @@
 		<module>rabbitmq</module>
 		<module>common</module>
     	<module>spring</module>
-    </modules>
+    	<module>springmvc</module>
+	</modules>
 	
 	<properties>
 		
