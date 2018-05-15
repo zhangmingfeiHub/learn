@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.context.annotation.ComponentScan.Filter;
 
 /**
@@ -21,8 +22,8 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 @ComponentScan(basePackageClasses = Mark.class, useDefaultFilters = false, includeFilters = {
 		@Filter(type = FilterType.ANNOTATION, value = Controller.class)
 })
-@EnableWebMvc
-public class MvcConfig {
+//@EnableWebMvc
+public class MvcConfig extends WebMvcConfigurationSupport {
 
 	
 	
