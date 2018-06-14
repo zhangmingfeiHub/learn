@@ -23,16 +23,24 @@ import com.rabbitmq.client.Connection;
  * QUEUE1被CONSUMER1消费了队列中的全部消息，QUEUE2被CONSUMER2消费了队列中的全部消息，<br/>
  * 其实QUEUE1和QUEUE2中的消息是一样的<br/>
  * 
+ * 总结direct类型交换器：
+ * 1、生产者发送消息到direct类型交换器，需要指定交换器名称、路由键，发送消息到指定的direct交换器上，
+ * direct交换器会根据指定的路由键把消息投递到绑定的队列上，队列和direct类型的交换器绑定关系就是路由键；
+ * 2、可以多个队列用相同的BINDING_KEY绑在direct类型的交换器上，当生产者把消息发送direct类型的交换器上，
+ * 消息都会被投递都这些队列中；
+ * 
  * @author mingfei.z
  */
-public class QueueCaseV3_Product1 {
+public class QueueCaseV3_Product1_Direct {
 
-	public static final Logger logger = LoggerFactory.getLogger(QueueCaseV3_Product1.class);
+	public static final Logger logger = LoggerFactory.getLogger(QueueCaseV3_Product1_Direct.class);
 	
 	public static final String EXCANGE_NAME = "exchange_valid_case_v3";
 	public static final String BINDING_KEY = "binding_key_valid_case_v3";
+	public static final String BINDING_KEY_3 = "binding_key_valid_case_v3_3";
 	public static final String QUEUE_NAME = "queue_valid_case_v3";
 	public static final String QUEUE_NAME_2 = "queue_valid_case_v3_2";
+	public static final String QUEUE_NAME_3 = "queue_valid_case_v3_3";
 	
 	public static void main(String[] args) {
 		try {
@@ -42,8 +50,11 @@ public class QueueCaseV3_Product1 {
 			
 			channel.exchangeDeclare(EXCANGE_NAME, BuiltinExchangeType.DIRECT);
 			channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+			channel.queueDeclare(QUEUE_NAME_2, false, false, false, null);
+			channel.queueDeclare(QUEUE_NAME_3, false, false, false, null);
 			channel.queueBind(QUEUE_NAME, EXCANGE_NAME, BINDING_KEY);
 			channel.queueBind(QUEUE_NAME_2, EXCANGE_NAME, BINDING_KEY);
+			channel.queueBind(QUEUE_NAME_3, EXCANGE_NAME, BINDING_KEY_3);
 			
 			String msg = "";
 			for (int i=1; i<=20; i++) {
