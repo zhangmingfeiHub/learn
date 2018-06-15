@@ -1,0 +1,35 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
+
+	<context-param>
+		<param-name>country</param-name>
+		<param-value>中国</param-value>
+	</context-param>
+	<context-param>
+		<param-name>name</param-name>
+		<param-value>zhangsan</param-value>
+	</context-param>
+
+	<servlet>
+		<servlet-name>hello</servlet-name>
+		<servlet-class>com.mfzhang.mayi.servlet.HelloServlet</servlet-class>
+		<init-param>
+			<param-name>name</param-name>
+			<param-value>zhangsan</param-value>
+		</init-param>
+		<init-param>
+			<param-name>sex</param-name>
+			<param-value>1</param-value>
+			<description>性别，1-表示男，0-表示女</description>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>hello</servlet-name>
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+
+</web-app>
