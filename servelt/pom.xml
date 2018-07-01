@@ -50,6 +50,12 @@
 		    <groupId>wsdl4j</groupId>
 		    <artifactId>wsdl4j</artifactId>
 		</dependency>
+		
+		<!-- hamcrest -->
+		<dependency>
+		    <groupId>org.hamcrest</groupId>
+		    <artifactId>hamcrest-core</artifactId>
+		</dependency>
 	</dependencies>
 	
 	<build>
