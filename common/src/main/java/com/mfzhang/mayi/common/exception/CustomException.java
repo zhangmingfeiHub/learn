@@ -8,7 +8,7 @@ package com.mfzhang.mayi.common.exception;
  * 自定义异常类
  * @author mingfei.z
  */
-public class CustomException extends Exception {
+public class CustomException extends RuntimeException {
 
 	/** @author mingfei.z */
 	private static final long serialVersionUID = -1978533630618674198L;

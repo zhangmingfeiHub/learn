@@ -11,6 +11,9 @@ package com.mfzhang.mayi.common.enums;
 public enum StateCodeEnum {
 
 	CODE_COMMON_SUCCESS(200, "成功"),
+
+	/** 405-Method Not Allowed */
+	CODE_COMMON_METHOD_NOT_ALLOWED(405, "Method Not Allowed"),
 	
 	CODE_COMMON_SYSTEM_ERROR(500, "系统错误"),
 	
