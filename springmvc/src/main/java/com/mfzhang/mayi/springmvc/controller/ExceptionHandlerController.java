@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.mfzhang.mayi.common.domain.JsonResult;
 import com.mfzhang.mayi.common.enums.StateCodeEnum;
+import com.mfzhang.mayi.common.exception.CustomException;
 
 /**
  * 
@@ -36,7 +37,7 @@ public class ExceptionHandlerController {
 		return jsonResult;
 	}
 	
-//	@ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED)
+	@ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED)
 	@ExceptionHandler(HttpRequestMethodNotSupportedException.class)
 	@ResponseBody
 	public JsonResult<String> handlerException(HttpRequestMethodNotSupportedException e) {
@@ -45,6 +46,17 @@ public class ExceptionHandlerController {
 		logger.info("Method Not Allowed", e);
 		
 		jsonResult.fail(StateCodeEnum.CODE_COMMON_METHOD_NOT_ALLOWED);
+		return jsonResult;
+	}
+	
+	@ExceptionHandler(CustomException.class)
+	@ResponseBody
+	public JsonResult<String> handlerException(CustomException e) {
+		JsonResult<String> jsonResult = new JsonResult<String>();
+		
+		logger.info(e.getMessage() + ": " + e.getExMsg(), e);
+		
+		jsonResult.fail(StateCodeEnum.CODE_TIPS_PARAM_ERROR.getCode(), e.getMessage() + ": " + e.getExMsg());
 		return jsonResult;
 	}
 	
