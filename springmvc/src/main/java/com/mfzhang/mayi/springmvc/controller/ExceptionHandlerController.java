@@ -37,7 +37,7 @@ public class ExceptionHandlerController {
 		return jsonResult;
 	}
 	
-	@ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED)
+	@ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED, reason = "")
 	@ExceptionHandler(HttpRequestMethodNotSupportedException.class)
 	@ResponseBody
 	public JsonResult<String> handlerException(HttpRequestMethodNotSupportedException e) {
@@ -48,15 +48,15 @@ public class ExceptionHandlerController {
 		jsonResult.fail(StateCodeEnum.CODE_COMMON_METHOD_NOT_ALLOWED);
 		return jsonResult;
 	}
-	
+
 	@ExceptionHandler(CustomException.class)
 	@ResponseBody
 	public JsonResult<String> handlerException(CustomException e) {
 		JsonResult<String> jsonResult = new JsonResult<String>();
 		
-		logger.info(e.getMessage() + ": " + e.getExMsg(), e);
+		logger.info(e.getExMsg() + ": " + e.getMessage(), e);
 		
-		jsonResult.fail(StateCodeEnum.CODE_TIPS_PARAM_ERROR.getCode(), e.getMessage() + ": " + e.getExMsg());
+		jsonResult.fail(StateCodeEnum.CODE_COMMON_SYSTEM_ERROR.getCode(), e.getExMsg() + ": " + e.getMessage());
 		return jsonResult;
 	}
 	
