@@ -17,6 +17,7 @@
     	<module>spring</module>
     	<module>springmvc</module>
     	<module>servelt</module>
+    	<module>dubbo</module>
 	</modules>
 	
 	<properties>
