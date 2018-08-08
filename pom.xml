@@ -18,6 +18,9 @@
     	<module>springmvc</module>
     	<module>servelt</module>
     	<module>dubbo</module>
+		<module>springboot-dubbo</module>
+	    <module>springboot-web</module>
+	    <module>springboot-web-simple</module>
 	</modules>
 	
 	<properties>
@@ -32,7 +35,7 @@
 		<slf4j.version>1.7.25</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
 		<!-- spring -->
-		<spring.version>5.0.1.RELEASE</spring.version>
+		<spring.version>5.0.8.RELEASE</spring.version>
 		<!-- servlet 3.0 -->
 		<javax.servlet.version>3.1.0</javax.servlet.version>
 		<!-- jackson -->
@@ -48,6 +51,10 @@
 		<hamcrest.version>1.3</hamcrest.version>
 		<!-- junit -->
 		<junit.version>4.12</junit.version>
+		<!-- spring boot -->
+		<spring.boot.version>2.0.4.RELEASE</spring.boot.version>
+		<!-- hibernate-validator -->
+		<hibernate-validator.version>6.0.11.Final</hibernate-validator.version>
 	</properties>
 	
 	<profiles>
@@ -57,6 +64,9 @@
 			<properties>
 				<env>home</env>
 			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 		</profile>
 		<!-- 公司 -->
 		<profile>
@@ -64,9 +74,6 @@
 			<properties>
 				<env>company</env>
 			</properties>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 		</profile>
 	</profiles>
 	
@@ -218,6 +225,25 @@
 			    <artifactId>junit</artifactId>
 			    <version>${junit.version}</version>
 			    <scope>test</scope>
+			</dependency>
+			
+			<!-- spring boot -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			
+			<!-- dubbot -->
+			
+			
+			<!-- hibernate-validator -->
+			<dependency>
+	    		<groupId>org.hibernate</groupId>
+			    <artifactId>hibernate-validator</artifactId>
+	    		<version>${hibernate-validator.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
