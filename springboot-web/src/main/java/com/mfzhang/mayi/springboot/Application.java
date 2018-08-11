@@ -6,12 +6,14 @@ package com.mfzhang.mayi.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * 
  * @author mingfei.z
  */
 @SpringBootApplication
+@ImportResource("classpath:spring/dubbo-consumer.xml")
 public class Application {
 
 	/**
