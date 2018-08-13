@@ -12,7 +12,7 @@ import com.mfzhang.mayi.dubbo.service.DubboProviderService;
  * 
  * @author mingfei.z
  */
-@Service("dubboProviderService")
+//@Service("dubboProviderService")
 public class DubboProviderServiceImpl implements DubboProviderService {
 
 	@Override

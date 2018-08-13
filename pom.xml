@@ -56,6 +56,8 @@
 		<spring.boot.version>2.0.4.RELEASE</spring.boot.version>
 		<!-- hibernate-validator -->
 		<hibernate-validator.version>6.0.11.Final</hibernate-validator.version>
+		<!-- zkclient -->
+		<zkclient.version>0.10</zkclient.version>
 	</properties>
 	
 	<profiles>
@@ -243,7 +245,11 @@
 			</dependency>
 			
 			<!-- dubbot -->
-			
+			<dependency>
+			    <groupId>com.101tec</groupId>
+			    <artifactId>zkclient</artifactId>
+			    <version>${zkclient.version}</version>
+			</dependency>
 			
 			<!-- hibernate-validator -->
 			<dependency>

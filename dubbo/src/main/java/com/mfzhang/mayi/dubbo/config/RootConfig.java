@@ -15,7 +15,7 @@ import com.mfzhang.mayi.dubbo.service.impl.DubboProviderServiceImpl;
  * 
  * @author mingfei.z
  */
-@Configuration
+//@Configuration
 public class RootConfig {
 
 	@Bean

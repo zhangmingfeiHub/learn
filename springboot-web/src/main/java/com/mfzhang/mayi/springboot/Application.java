@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ImportResource;
  * @author mingfei.z
  */
 @SpringBootApplication
-@ImportResource("classpath:spring/dubbo-consumer.xml")
+@ImportResource("classpath*:spring/dubbo-consumer.xml")
 public class Application {
 
 	/**
