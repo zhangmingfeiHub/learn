@@ -60,6 +60,7 @@
 		<zkclient.version>0.10</zkclient.version>
 		<!-- dubbo -->
 		<dubbo.version>2.6.2</dubbo.version>
+		<curator-framework.version>4.0.1</curator-framework.version>
 	</properties>
 	
 	<profiles>
@@ -257,6 +258,11 @@
 			    <groupId>com.alibaba</groupId>
 			    <artifactId>dubbo</artifactId>
 			    <version>${dubbo.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.apache.curator</groupId>
+			    <artifactId>curator-framework</artifactId>
+			    <version>${curator-framework.version}</version>
 			</dependency>
 			
 			<!-- hibernate-validator -->
