@@ -1,7 +1,5 @@
 package com.mfzhang.mayi.dubbo;
 
-import java.io.IOException;
-
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.alibaba.dubbo.container.Main;
