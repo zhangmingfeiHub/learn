@@ -7,11 +7,76 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
+	<!-- <dubbo:application name="">
+		<dubbo:parameter key="" value=""/>
+	</dubbo:application> -->
+	
+	<!-- <dubbo:service interface="">
+		<dubbo:method name="">
+			<dubbo:argument  />
+			<dubbo:parameter key="" value=""/>
+		</dubbo:method>
+		
+		<dubbo:parameter key="" value="">
+		</dubbo:parameter>
+		
+		<property name="">
+			
+		</property>
+	</dubbo:service> -->
+	
+	<!-- <dubbo:reference interface="">
+		<dubbo:method name="">
+			<dubbo:argument/>
+			<dubbo:parameter key="" value=""/>
+		</dubbo:method>
+		
+		<dubbo:parameter key="" value=""/>
+	</dubbo:reference> -->
+	
+	<!-- <dubbo:provider >
+		<dubbo:service interface="">
+			<dubbo:method name="">
+				<dubbo:argument/>
+				<dubbo:parameter key="" value=""/>
+			</dubbo:method>
+			<dubbo:parameter key="" value=""/>
+			<property name=""></property>
+		</dubbo:service>
+		<dubbo:parameter key="" value=""/>
+	</dubbo:provider> -->
+	
+	<!-- <dubbo:consumer>
+		<dubbo:reference interface="">
+			<dubbo:method name=""></dubbo:method>
+			
+			<dubbo:parameter key="" value=""/>
+		</dubbo:reference>
+		<dubbo:parameter key="" value=""/>
+	</dubbo:consumer> -->
+	
+	<!-- <dubbo:protocol >
+		<dubbo:parameter key="" value=""/>
+	</dubbo:protocol> -->
+	
+	<!-- <dubbo:registry >
+		<dubbo:parameter key="" value=""/>
+	</dubbo:registry> -->
+	
+	<!-- <dubbo:monitor >
+		<dubbo:parameter key="" value=""/>
+	</dubbo:monitor> -->
+	
+	<!-- <dubbo:module name="" >
+	</dubbo:module> -->
+	
 	<!-- 提供方 -->
 	<dubbo:application name="learn-dubbo-provider"/>
 	
 	<!-- 注册中心地址 -->
 	<dubbo:registry address="zookeeper://127.0.0.1:2181" />
+	
+	<dubbo:monitor protocol="registry"></dubbo:monitor>
 	
 	<!-- 采用dubbo协议，在端口20880暴露服务 -->
 	<dubbo:protocol name="dubbo" port="20880" />
