@@ -15,6 +15,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -50,7 +51,7 @@ public class ConsumerController {
 	@ResponseBody
 	public String rest() {
 		
-		String accessToken = "13_n9xtp8lSMQN6YTesqkySmX-eRYk_QNM-OyTWPymq9NE1Fj8oJ8HZAwpCPy8raqykUaIe-zbiDISq6eCs5cgyVTSsh-LljZPq8kE3voI5YGQxBsAkbLh_Ad1mcMs2UgF5AyVieJfy3FF8ful0PWOfAHATAS";
+		String accessToken = "13_2GaubAjak7u6ZquNhX40bOEwX_rEQLnqHln-00skjgB9d7XjKb8iSB1lIOL758X-dLMS0P4SPL2TXvk6vtS_zQS7NVDVbUWVEXJ6xL3qa18VELSuQ-QmtlfdTHGIQv4Umv4_526EWGC1hUCXBNXfAEASEO";
 		String wxaCodeUrl = "https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=" + accessToken;
 		InputStream inputStream = null;
 		OutputStream outputStream = null;
@@ -59,15 +60,15 @@ public class ConsumerController {
 			Map<String,Object> param = new HashMap<>();
 			param.put("scene", "12");
 			param.put("page", "");
-			param.put("width", 430);
-			param.put("auto_color", false);
-			Map<String,Object> line_color = new HashMap<>();
-			line_color.put("r", 0);
-			line_color.put("g", 0);
-			line_color.put("b", 0);
-			param.put("line_color", line_color);
+//			param.put("width", 430);
+//			param.put("auto_color", false);
+//			Map<String,Object> line_color = new HashMap<>();
+//			line_color.put("r", 0);
+//			line_color.put("g", 0);
+//			line_color.put("b", 0);
+//			param.put("line_color", line_color);
 			
-			MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
+			HttpHeaders headers = new HttpHeaders();
 			HttpEntity requestEntity = new HttpEntity(param, headers);
 			ResponseEntity<byte[]> entity = restTemplate.exchange(wxaCodeUrl, HttpMethod.POST, requestEntity, byte[].class, new Object[0]);
 			if (entity.getStatusCodeValue() == 200) {
@@ -75,7 +76,7 @@ public class ConsumerController {
 				
 				inputStream = new ByteArrayInputStream(result);
 				
-				File file = new File("E:\\mingfei.zhang\\java/1.png");
+				File file = new File("D:\\work\\需求(记录2)\\29、未来店\\小程序/8.png");
 				if (!file.exists()){
 	                file.createNewFile();
 	            }
@@ -108,6 +109,11 @@ public class ConsumerController {
         }
 		
 		return "suc";
+	}
+	
+	public static void main(String[] args) {
+		String str = "https://macalline-hiscene.oss-cn-beijing.aliyuncs.com/3D/page/furniture/index.html?id=2";
+		System.out.println(str.length());
 	}
 	
 }
