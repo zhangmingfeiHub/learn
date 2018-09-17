@@ -29,32 +29,32 @@ public class Result<T> {
 	
 	public Result() {}
 	
-	public static Result success() {
+	public static <T> Result<T> success() {
 		return success(StateCodeEnum.CODE_COMMON_SUCCESS);
 	}
 
-	public static Result success(StateCodeEnum stateCodeEnum) {
+	public static <T> Result<T> success(StateCodeEnum stateCodeEnum) {
 		return success(stateCodeEnum, null);
 	}
 
-	public static Result success(Object data) {
+	public static <T> Result<T> success(T data) {
 		return success(StateCodeEnum.CODE_COMMON_SUCCESS, data);
 	}
 
-	public static Result success(StateCodeEnum stateCodeEnum, Object data) {
-		return new Result(true, stateCodeEnum.getCode(), stateCodeEnum.getMessage(), data);
+	public static <T> Result<T> success(StateCodeEnum stateCodeEnum, T data) {
+		return new Result<T>(true, stateCodeEnum.getCode(), stateCodeEnum.getMessage(), data);
 	}
 
-	public static Result fail() {
+	public static <T> Result<T> fail() {
 		return fail(StateCodeEnum.CODE_COMMON_SUCCESS);
 	}
 
-	public static Result fail(StateCodeEnum stateCodeEnum) {
+	public static <T> Result<T> fail(StateCodeEnum stateCodeEnum) {
 		return fail(stateCodeEnum, null);
 	}
 
-	public static Result fail(StateCodeEnum stateCodeEnum, Object data) {
-		return new Result(false, stateCodeEnum.getCode(), stateCodeEnum.getMessage(), data);
+	public static <T> Result<T> fail(StateCodeEnum stateCodeEnum, T data) {
+		return new Result<T>(false, stateCodeEnum.getCode(), stateCodeEnum.getMessage(), data);
 	}
 	
 	/**
