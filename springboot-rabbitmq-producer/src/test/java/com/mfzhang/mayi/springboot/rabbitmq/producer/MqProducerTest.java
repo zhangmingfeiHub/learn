@@ -25,7 +25,9 @@ public class MqProducerTest {
 	
 	@Test
 	public void testSendMsg() {
-		mqProducer.sendMsg();
+		mqProducer.sendMsg(1);
+		mqProducer.sendMsg(2);
+		mqProducer.sendMsg(3);
 	}
 	
 }

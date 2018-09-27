@@ -15,8 +15,21 @@ import org.springframework.stereotype.Component;
 public class MqConsumer {
 
 	@RabbitListener(queues = "queue-hello")
-	public void receiveMsg(String msg) {
-		System.out.println("mqConsumer receive msg: " + msg);
+	public void receiveMsg1(String msg) {
+		System.err.println("mqConsumer 【queue-hello】 receive msg: " + msg);
+		int a = 1/0;
+	}
+
+	@RabbitListener(queues = "queue-valid")
+	public void receiveMsg2(String msg) {
+		System.err.println("mqConsumer 【queue-valid】 receive msg: " + msg);
+		int a = 1/0;
+	}
+
+	@RabbitListener(queues = "queue-valid-2")
+	public void receiveMsg3(String msg) {
+		System.err.println("mqConsumer 【queue-valid-2】 receive msg: " + msg);
+		int a = 1/0;
 	}
 	
 }

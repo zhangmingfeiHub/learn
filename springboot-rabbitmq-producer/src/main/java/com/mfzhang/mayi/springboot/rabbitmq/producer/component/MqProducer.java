@@ -18,8 +18,13 @@ public class MqProducer {
 	@Autowired
 	private RabbitTemplate rabbitTemplate;
 	
-	public void sendMsg() {
-		rabbitTemplate.convertAndSend("queue-hello", "hello springboot rabbitMq");
+	public void sendMsg(int type) {
+		if (type == 1)
+			rabbitTemplate.convertAndSend("queue-hello", "hello springboot rabbitMq");
+		else if (type == 2)
+			rabbitTemplate.convertAndSend("queue-valid", "test dead queue, 【queue-valid】");
+		else if (type == 3)
+			rabbitTemplate.convertAndSend("queue-valid-2", "test dead queue, 【queue-valid-2】");
 	}
 	
 }
