@@ -22,6 +22,8 @@
 		<module>springboot-dubbo</module>
 	    <module>springboot-web</module>
 	    <module>springboot-web-simple</module>
+		<module>springboot-rabbitmq-producer</module>
+		<module>springboot-rabbitmq-consumer</module>
 	</modules>
 	
 	<properties>
