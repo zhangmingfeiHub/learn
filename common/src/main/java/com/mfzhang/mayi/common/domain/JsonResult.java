@@ -25,30 +25,33 @@ public class JsonResult<T> implements Serializable {
 	
 	private T data;
 
-	public void success() {
-		success(null);
+	public static <T> JsonResult<T> success() {
+		return success(null);
 	}
 
-	public void success(T data) {
-		success(StateCodeEnum.CODE_COMMON_SUCCESS.getMessage(), data);
+	public static <T> JsonResult<T> success(T data) {
+		return success(StateCodeEnum.CODE_COMMON_SUCCESS.getMessage(), data);
 	}
 
-	public void success(String message, T data) {
-		instance(StateCodeEnum.CODE_COMMON_SUCCESS.getCode(), message, data);
+	public static <T> JsonResult<T> success(String message, T data) {
+		return instance(StateCodeEnum.CODE_COMMON_SUCCESS.getCode(), message, data);
 	}
 
-	public void fail(StateCodeEnum stateCodeEnum) {
-		fail(stateCodeEnum.getCode(), stateCodeEnum.getMessage());
+	public static <T> JsonResult<T> fail(StateCodeEnum stateCodeEnum) {
+		return fail(stateCodeEnum.getCode(), stateCodeEnum.getMessage());
 	}
 
-	public void fail(int code, String message) {
-		instance(code, message, null);
+	public static <T> JsonResult<T> fail(int code, String message) {
+		return instance(code, message, null);
 	}
 
-	public void instance(int code, String message, T data) {
-		this.code = code;
-		this.message = message;
-		this.data = data;
+	public static <T> JsonResult<T> instance(int code, String message, T data) {
+		JsonResult<T> jsonResult = new JsonResult<>();
+		jsonResult.setCode(code);
+		jsonResult.setMessage(message);
+		jsonResult.setData(data);
+		
+		return jsonResult;
 	}
 	
 	public int getCode() {

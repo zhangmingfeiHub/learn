@@ -16,5 +16,8 @@
 <input type="text" id="sth" />
 <input type="button" value="提交" id="sthBtn" />
 
+<h2>customHM!</h2>
+<a href="custom/handler-mapping">custom/handler-mapping</a> <br />
+<a href="custom/handler-adapter">custom/handler-adapter</a>
 </body>
 </html>
